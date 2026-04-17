@@ -1,0 +1,15 @@
+sequenceDiagram
+  participant U as User
+  participant FE as Frontend
+  participant BE as Backend
+  participant DB as MySQL
+
+  U->>FE: Enter username + password
+  FE->>BE: POST /auth/login
+  BE->>DB: Validate username & password(hash)
+  DB-->>BE: User record
+  BE-->>FE: JWT token
+  FE->>FE: Save token in localStorage
+  FE->>BE: GET /contacts (Authorization: Bearer token)
+  BE-->>FE: Contact list (paged)
+  FE-->>U: Render contacts dashboard

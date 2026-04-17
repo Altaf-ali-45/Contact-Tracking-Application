@@ -1,0 +1,23 @@
+flowchart LR
+  A[React Frontend\nVite + React Router + Axios] -->|HTTP + JWT| B[Spring Boot Backend\nAuth + Contacts API]
+  B --> C[(MySQL contact_db)]
+
+  subgraph FE[Frontend]
+    A1[Login / Register]
+    A2[Contacts Dashboard]
+    A3[Create / Edit Contact]
+    A1 --> A2 --> A3
+  end
+
+  subgraph BE[Backend]
+    B1[AuthResource\n/auth/login, /auth/register]
+    B2[ContactResource\n/contacts CRUD]
+    B3[JwtAuthFilter + SecurityConfig]
+    B1 --> B3
+    B2 --> B3
+  end
+
+  A --> B1
+  A --> B2
+  B1 --> C
+  B2 --> C

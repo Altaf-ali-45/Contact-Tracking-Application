@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Management - Project Documentation</title>
+    <style>
+      :root {
+        --text: #111827;
+        --muted: #4b5563;
+        --line: #d1d5db;
+        --accent: #111827;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        color: var(--text);
+        margin: 0;
+        padding: 0;
+        line-height: 1.5;
+      }
+      .page {
+        width: 210mm;
+        margin: 0 auto;
+        padding: 18mm 14mm;
+      }
+      h1,
+      h2,
+      h3 {
+        margin: 0 0 8px;
+      }
+      h1 {
+        font-size: 30px;
+      }
+      h2 {
+        font-size: 20px;
+        margin-top: 24px;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 6px;
+      }
+      h3 {
+        font-size: 15px;
+        margin-top: 16px;
+      }
+      p,
+      li {
+        font-size: 12px;
+        color: var(--text);
+      }
+      .muted {
+        color: var(--muted);
+        font-size: 11px;
+      }
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 12px;
+        margin: 10px 0;
+      }
+      .grid2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .img {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 8px;
+        font-size: 11px;
+      }
+      th,
+      td {
+        border: 1px solid var(--line);
+        padding: 8px;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        background: #f3f4f6;
+      }
+      .toc li {
+        margin-bottom: 4px;
+      }
+      .pill {
+        display: inline-block;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 2px 8px;
+        font-size: 10px;
+        margin-right: 6px;
+      }
+      .footer {
+        margin-top: 18px;
+        font-size: 10px;
+        color: var(--muted);
+      }
+      .break {
+        page-break-before: always;
+      }
+      code {
+        background: #f3f4f6;
+        padding: 1px 4px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <h1>Contact Management System</h1>
+      <p class="muted">
+        Comprehensive Project Documentation • Generated on February 20, 2026
+      </p>
+
+      <div class="card">
+        <p>
+          <strong>Project Summary:</strong> A full-stack contact management
+          application with JWT-based authentication. Users can register, log in,
+          and manage contacts with user-level data isolation.
+        </p>
+        <p>
+          <span class="pill">Frontend: React + Vite</span>
+          <span class="pill">Backend: Spring Boot 3</span>
+          <span class="pill">Database: MySQL</span>
+          <span class="pill">Security: JWT + Spring Security</span>
+        </p>
+      </div>
+
+      <h2>Table of Contents</h2>
+      <ol class="toc">
+        <li>System Overview</li>
+        <li>Architecture Diagram</li>
+        <li>Authentication Flow Diagram</li>
+        <li>UI Screenshots</li>
+        <li>Backend Documentation</li>
+        <li>Frontend Documentation</li>
+        <li>Database Design</li>
+        <li>API Reference</li>
+        <li>Data Initialization (Demo User)</li>
+        <li>Run Instructions</li>
+        <li>Troubleshooting</li>
+      </ol>
+
+      <h2>1) System Overview</h2>
+      <p>
+        The application provides secure CRUD operations for contacts.
+        Authentication is handled through JWT tokens. Every contact is linked to
+        a specific user, ensuring users only access their own data.
+      </p>
+      <ul>
+        <li>
+          <strong>Authentication:</strong> Register and login using
+          username/password.
+        </li>
+        <li>
+          <strong>Authorization:</strong> Protected endpoints require Bearer
+          token.
+        </li>
+        <li>
+          <strong>Contacts Module:</strong> Create, read, update, delete
+          contacts.
+        </li>
+        <li>
+          <strong>Pagination:</strong> Contact listing uses pageable backend
+          response.
+        </li>
+      </ul>
+
+      <div class="break"></div>
+      <h2>2) Architecture Diagram</h2>
+      <img
+        class="img"
+        src="images/architecture.png"
+        alt="Architecture Diagram"
+      />
+      <p class="muted">
+        Shows interaction among React frontend, Spring Boot backend, and MySQL
+        database.
+      </p>
+
+      <h2>3) Authentication Flow Diagram</h2>
+      <img
+        class="img"
+        src="images/auth-flow.png"
+        alt="Authentication Flow Diagram"
+      />
+      <p class="muted">
+        Sequence of login, JWT creation, token storage, and authenticated API
+        access.
+      </p>
+
+      <div class="break"></div>
+      <h2>4) UI Screenshots</h2>
+      <h3>Login Page</h3>
+      <img class="img" src="images/login-page.png" alt="Login Page" />
+
+      <h3>Register Page</h3>
+      <img class="img" src="images/register-page.png" alt="Register Page" />
+
+      <h3>Contacts Dashboard</h3>
+      <img class="img" src="images/contacts-page.png" alt="Contacts Page" />
+
+      <div class="break"></div>
+      <h2>5) Backend Documentation</h2>
+      <h3>Technology Stack</h3>
+      <ul>
+        <li>Java 17</li>
+        <li>Spring Boot 3.1.5</li>
+        <li>Spring Data JPA + Hibernate</li>
+        <li>Spring Security + JWT (jjwt 0.11.5)</li>
+        <li>MySQL Connector</li>
+      </ul>
+
+      <h3>Key Backend Packages</h3>
+      <table>
+        <tr>
+          <th>Package</th>
+          <th>Purpose</th>
+        </tr>
+        <tr>
+          <td><code>resource</code></td>
+          <td>
+            REST endpoints (<code>AuthResource</code>,
+            <code>ContactResource</code>)
+          </td>
+        </tr>
+        <tr>
+          <td><code>security</code></td>
+          <td>JWT generation/validation and security filter chain</td>
+        </tr>
+        <tr>
+          <td><code>service</code></td>
+          <td>Business logic for contacts</td>
+        </tr>
+        <tr>
+          <td><code>repo</code></td>
+          <td>
+            JPA repositories for <code>User</code> and <code>Contact</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>domain</code></td>
+          <td>Entity classes mapped to database tables</td>
+        </tr>
+        <tr>
+          <td><code>config</code></td>
+          <td>CORS, password encoder, data initializer</td>
+        </tr>
+      </table>
+
+      <h3>Security Notes</h3>
+      <ul>
+        <li><code>/auth/**</code> endpoints are public.</li>
+        <li>All other endpoints are protected and require JWT.</li>
+        <li>
+          Frontend includes token as
+          <code>Authorization: Bearer &lt;token&gt;</code>.
+        </li>
+      </ul>
+
+      <h2>6) Frontend Documentation</h2>
+      <h3>Technology Stack</h3>
+      <ul>
+        <li>React 19 + Vite</li>
+        <li>React Router</li>
+        <li>Axios API client with request interceptor for JWT</li>
+        <li>Tailwind CSS utilities for styling</li>
+      </ul>
+
+      <h3>Frontend Flow</h3>
+      <ul>
+        <li>User logs in from <code>/login</code>.</li>
+        <li>JWT is saved in browser storage.</li>
+        <li>Protected routes validate token existence.</li>
+        <li>
+          Contacts page fetches <code>/contacts?page=0&amp;size=10</code>.
+        </li>
+      </ul>
+
+      <div class="break"></div>
+      <h2>7) Database Design</h2>
+      <h3>users</h3>
+      <table>
+        <tr>
+          <th>Column</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>BIGINT</td>
+          <td>Primary key</td>
+        </tr>
+        <tr>
+          <td>username</td>
+          <td>VARCHAR (unique)</td>
+          <td>Login identifier</td>
+        </tr>
+        <tr>
+          <td>password</td>
+          <td>VARCHAR</td>
+          <td>BCrypt hash (not plaintext)</td>
+        </tr>
+        <tr>
+          <td>role</td>
+          <td>VARCHAR</td>
+          <td>Usually <code>USER</code></td>
+        </tr>
+      </table>
+
+      <h3>contacts</h3>
+      <table>
+        <tr>
+          <th>Column</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>UUID</td>
+          <td>Primary key</td>
+        </tr>
+        <tr>
+          <td>name</td>
+          <td>VARCHAR</td>
+          <td>Contact name</td>
+        </tr>
+        <tr>
+          <td>email</td>
+          <td>VARCHAR</td>
+          <td>Email address</td>
+        </tr>
+        <tr>
+          <td>phone</td>
+          <td>VARCHAR</td>
+          <td>Phone number</td>
+        </tr>
+        <tr>
+          <td>title</td>
+          <td>VARCHAR</td>
+          <td>Professional title</td>
+        </tr>
+        <tr>
+          <td>address</td>
+          <td>VARCHAR</td>
+          <td>Address</td>
+        </tr>
+        <tr>
+          <td>status</td>
+          <td>VARCHAR</td>
+          <td>ACTIVE / INACTIVE</td>
+        </tr>
+        <tr>
+          <td>photo_url</td>
+          <td>VARCHAR</td>
+          <td>Optional avatar URL</td>
+        </tr>
+        <tr>
+          <td>user_id</td>
+          <td>BIGINT (FK)</td>
+          <td>Owner user id</td>
+        </tr>
+      </table>
+
+      <h2>8) API Reference</h2>
+      <table>
+        <tr>
+          <th>Method</th>
+          <th>Endpoint</th>
+          <th>Auth</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>POST</td>
+          <td><code>/auth/register</code></td>
+          <td>No</td>
+          <td>Create account</td>
+        </tr>
+        <tr>
+          <td>POST</td>
+          <td><code>/auth/login</code></td>
+          <td>No</td>
+          <td>Get JWT token</td>
+        </tr>
+        <tr>
+          <td>GET</td>
+          <td><code>/contacts</code></td>
+          <td>Yes</td>
+          <td>Get paged contacts</td>
+        </tr>
+        <tr>
+          <td>POST</td>
+          <td><code>/contacts</code></td>
+          <td>Yes</td>
+          <td>Create contact</td>
+        </tr>
+        <tr>
+          <td>GET</td>
+          <td><code>/contacts/{id}</code></td>
+          <td>Yes</td>
+          <td>Get one contact</td>
+        </tr>
+        <tr>
+          <td>PUT</td>
+          <td><code>/contacts/{id}</code></td>
+          <td>Yes</td>
+          <td>Update contact</td>
+        </tr>
+        <tr>
+          <td>DELETE</td>
+          <td><code>/contacts/{id}</code></td>
+          <td>Yes</td>
+          <td>Delete contact</td>
+        </tr>
+      </table>
+
+      <h2>9) Data Initialization (Demo User)</h2>
+      <p>
+        On backend startup, the data initializer ensures a demo account exists
+        and seeds sample contacts if missing.
+      </p>
+      <ul>
+        <li><strong>Demo username:</strong> <code>test</code></li>
+        <li><strong>Demo password:</strong> <code>test123</code></li>
+        <li>Seeded contacts: Alice Johnson, Brian Smith, Carla Mendes</li>
+        <li>Seeding is idempotent (safe across restarts)</li>
+      </ul>
+
+      <div class="break"></div>
+      <h2>10) Run Instructions</h2>
+      <h3>Backend</h3>
+      <p>Open terminal in <code>contact-backend</code> and run:</p>
+      <p><code>mvn spring-boot:run</code></p>
+      <p>Backend URL: <code>http://localhost:8080</code></p>
+
+      <h3>Frontend</h3>
+      <p>Open terminal in <code>contact-frontend</code> and run:</p>
+      <p><code>npm install</code><br /><code>npm run dev</code></p>
+      <p>Frontend URL: <code>http://localhost:5173</code></p>
+
+      <h3>Database Credentials</h3>
+      <p>Edit backend config file:</p>
+      <p><code>contact-backend/src/main/resources/application.yml</code></p>
+      <p>
+        Set your own MySQL username/password under
+        <code>spring.datasource</code>.
+      </p>
+
+      <h2>11) Troubleshooting</h2>
+      <ul>
+        <li>
+          If login fails after restart, clear old token from browser storage and
+          login again.
+        </li>
+        <li>
+          If backend fails to start, verify MySQL service and database
+          credentials.
+        </li>
+        <li>
+          If frontend is blank, check browser console and Vite terminal output.
+        </li>
+        <li>
+          If ports are busy, stop existing processes on <code>8080</code> and
+          <code>5173</code>.
+        </li>
+      </ul>
+
+      <div class="footer">
+        Prepared for academic/demo use. This document can be shared with
+        students for setup, usage, and architecture understanding.
+      </div>
+    </div>
+  </body>
+</html>
