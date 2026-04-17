@@ -1,6 +1,9 @@
 # Contact Tracking Application
 
 A full-stack web application to manage contacts efficiently.
+Contact-Tracking-Application
+A secure and user-friendly Contact Management System built with React and Spring Boot. Features include authentication, CRUD operations, and efficient contact organization.
+
 
 ## 🚀 Features
 - User Authentication (JWT)
@@ -19,5 +22,4 @@ mvn spring-boot:run
 
 ### Frontend
 npm install
-npm start# Contact-Tracking-Application
-A secure and user-friendly Contact Management System built with React and Spring Boot. Features include authentication, CRUD operations, and efficient contact organization.
+npm start
